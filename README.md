@@ -1,26 +1,54 @@
-**Task Manager Application Overview:The task manager application is designed to help users efficiently manage their tasks and responsibilities by providing a user-friendly interface for creating, viewing, updating, and deleting tasks. It includes essential features such as secure user authentication, allowing individuals to sign up and log in to their accounts, as well as profile management to update personal information. With built-in validation such as input field validation and email validation, the application ensures a seamless user experience while enhancing productivity and organization in both personal and professional settings. **
+# Local Volunteer Platform
 
-**This apps **contain** the following features:**
+A web app that connects community organisers with local volunteers. Organisers post volunteering opportunities with a fixed number of places and decide who gets them. Volunteers browse open opportunities, apply, and track the outcome.
 
-* Signup
-* Login
-* Logout
-* Update profile
-* Add tasks
-* View tasks
-* Update tasks
-* Delete tasks
+Built for IFQ636 Assignment 1 (QUT), extending the unit's MERN starter app.
 
-**This **app**lication** is**almost **a** precompiled** app**. However, students will develop some features,**such as adding tasks, viewing tasks, updating tasks, and **deleting** tasks**. **Students** will interact with GitHub when they develop the features.**
+## Roles
 
----
+- **Volunteer**: anyone who registers. Browses opportunities, applies, withdraws.
+- **Organiser**: set up by the platform operator, not self-registered. Creates opportunities and reviews applicants.
 
-**Prerequisite:** Please install the following software and create account in following web tools** **
+## Features
 
-* **Nodejs [**[https://nodejs.org/en](https://nodejs.org/en)]** **
-* **Git [**[https://git-scm.com/](https://git-scm.com/)]** **
-* **VS code editor** [[https://code.visualstudio.com/](https://code.visualstudio.com/)]** **
-* **MongoDB Account** [[https://account.mongodb.com/account/login](https://account.mongodb.com/account/login)]** - In tutorial, we have also showed how can you create account and database: follow step number 2.**
-* **GitHub Account** [[https://github.com/signup?source=login](https://github.com/signup?source=login)]** **
+| Feature                                      | Persona                      |
+| -------------------------------------------- | ---------------------------- |
+| Register and log in                          | Volunteer                    |
+| Seeded Organiser accounts                    | Platform operator, Organiser |
+| Create, edit and close opportunities         | Organiser                    |
+| Browse open opportunities                    | Volunteer                    |
+| Apply for an opportunity                     | Volunteer                    |
+| Approve or reject applicants within capacity | Organiser                    |
+| View application status and withdraw         | Volunteer                    |
 
----
+## Tech stack
+
+Node.js 22, Express, MongoDB Atlas (Mongoose), React, Tailwind CSS, JWT authentication.
+
+## Local setup
+
+Prerequisites: Node.js 22 (via nvm), a MongoDB Atlas cluster, Git.
+
+```bash
+git clone https://github.com/sathprasad-create/local-volunteer-platform.git
+cd local-volunteer-platform
+nvm use 22
+npm run install-all
+cp backend/.env.example backend/.env
+```
+
+Edit `backend/.env`:
+- `MONGO_URI`: your Atlas connection string, ending in `/lvp`
+- `JWT_SECRET`: generate with `openssl rand -base64 32`
+- `PORT`: 5001
+
+Run both servers:
+```bash
+npm run dev
+```
+Frontend: http://localhost:3000. Backend: http://localhost:5001.
+
+## Project links
+
+- Jira: SCRUM project(https://sathprasad.atlassian.net/jira/software/projects/SCRUM/boards/1/backlog)
+- Figma: https://www.figma.com/design/lrvfojzaNrgngC8uV4DoP8/Local-Volunteer-Platform--IFQ636-A1-?node-id=26-71&t=NyLhM2MdoOdm7onR-1
