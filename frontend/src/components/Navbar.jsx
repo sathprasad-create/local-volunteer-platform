@@ -1,5 +1,6 @@
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
+import roleHome from '../utils/roleHome';
 
 const Navbar = () => {
   const { user, logout } = useAuth();
@@ -12,11 +13,12 @@ const Navbar = () => {
 
   return (
     <nav className="bg-blue-600 text-white p-4 flex justify-between items-center">
-      <Link to="/" className="text-2xl font-bold">Task Manager</Link>
+      <<Link to={user ? roleHome(user.role) : '/login'} className="text-2xl font-bold">Local Volunteer Platform</Link>
       <div>
         {user ? (
           <>
-            <Link to="/tasks" className="mr-4">Tasks</Link>
+            {user.role === 'organiser' && <Link to="/organiser/opportunities" className="mr-4">My opportunities</Link>}
+            {user.role === 'volunteer' && <Link to="/opportunities" className="mr-4">Browse</Link>}
             <Link to="/profile" className="mr-4">Profile</Link>
             <button
               onClick={handleLogout}
