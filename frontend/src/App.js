@@ -6,6 +6,7 @@ import Profile from './pages/Profile';
 import RoleRoute from './components/RoleRoute';
 import MyOpportunities from './pages/MyOpportunities';
 import BrowseOpportunities from './pages/BrowseOpportunities';
+import CreateOpportunity from './pages/CreateOpportunity';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="/profile" element={<RoleRoute roles={['organiser', 'volunteer']}><Profile /></RoleRoute>} />
         <Route path="/organiser/opportunities" element={<RoleRoute roles={['organiser']}><MyOpportunities /></RoleRoute>} />
         <Route path="/opportunities" element={<RoleRoute roles={['volunteer']}><BrowseOpportunities /></RoleRoute>} />
+        <Route path="/organiser/opportunities/new" element={<RoleRoute roles={['organiser']}><CreateOpportunity /></RoleRoute>} />
       </Routes>
     </Router>
   );
