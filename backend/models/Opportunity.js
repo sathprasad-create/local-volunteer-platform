@@ -12,4 +12,11 @@ const opportunitySchema = new mongoose.Schema({
     organiser: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
 }, { timestamps: true });
 
+const { isClosed } = require('../utils/opportunityStatus');
+
+opportunitySchema.virtual('status').get(function () {
+    return isClosed(this) ? 'closed' : 'open';
+});
+opportunitySchema.set('toJSON', { virtuals: true });
+
 module.exports = mongoose.model('Opportunity', opportunitySchema);
