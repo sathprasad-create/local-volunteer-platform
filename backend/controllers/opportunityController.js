@@ -49,6 +49,10 @@ const updateOpportunity = async (req, res) => {
         if (!opportunity) return;
 
         const errors = validateOpportunity(req.body);
+        const capacity = Number(req.body.capacity);
+        if (!errors.capacity && capacity < opportunity.approvedCount) {
+            errors.capacity = `Capacity cannot be less than the ${opportunity.approvedCount} volunteers already approved`;
+        }
         if (Object.keys(errors).length) {
             return res.status(400).json({ message: 'Please fix the highlighted fields', errors });
         }
