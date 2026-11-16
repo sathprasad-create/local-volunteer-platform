@@ -23,7 +23,9 @@ const MyOpportunities = () => {
     setError('');
     try {
       const { data } = await axiosInstance.patch(`/api/opportunities/${id}/close`, {}, auth);
-      setItems((list) => list.map((o) => (o._id === id ? data : o)));
+            setItems((list) => (filter === 'open'
+        ? list.filter((o) => o._id !== id)
+        : list.map((o) => (o._id === id ? data : o))));
       setConfirmingId(null);
     } catch (err) {
       setError(err.response?.data?.message || 'Could not close this opportunity.');
