@@ -1,6 +1,6 @@
 const Opportunity = require('../models/Opportunity');
 const { validateOpportunity } = require('../validators/opportunityValidator');
-const { isClosed } = require('../utils/opportunityStatus');
+const { isClosed, openFilter, closedFilter } = require('../utils/opportunityStatus');
 
 const createOpportunity = async (req, res) => {
     const errors = validateOpportunity(req.body);
@@ -20,7 +20,10 @@ const createOpportunity = async (req, res) => {
 
 const getMyOpportunities = async (req, res) => {
     try {
-        const opportunities = await Opportunity.find({ organiser: req.user._id }).sort({ eventDate: 1 });
+        const filter = { organiser: req.user._id };
+        if (req.query.status === 'open') Object.assign(filter, openFilter());
+        if (req.query.status === 'closed') Object.assign(filter, closedFilter());
+        const opportunities = await Opportunity.find(filter).sort({ eventDate: -1 });   
         res.json(opportunities);
     } catch (error) {
         res.status(500).json({ message: error.message });
