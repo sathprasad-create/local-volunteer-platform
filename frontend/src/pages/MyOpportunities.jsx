@@ -24,6 +24,9 @@ const MyOpportunities = () => {
       {location.state?.published && (
         <div className="border-2 border-green-700 rounded p-2 mb-4 font-semibold">Published: {location.state.published}</div>
       )}
+      {location.state?.updated && (
+        <div className="border-2 border-green-700 rounded p-2 mb-4 font-semibold">Saved: {location.state.updated}</div>
+      )}
       {error && <p className="text-red-700">{error}</p>}
       {items && items.length === 0 && (
         <div className="border-2 border-dashed rounded p-8 text-center text-gray-600">No opportunities yet. Create your first one.</div>
@@ -38,6 +41,7 @@ const MyOpportunities = () => {
             {new Date(o.eventDate).toLocaleDateString()} · {o.location} · closes {new Date(o.closesAt).toLocaleDateString()}
           </div>
           <div className="text-sm">{o.approvedCount} of {o.capacity} places filled</div>
+          <Link to={`/organiser/opportunities/${o._id}/edit`} className="text-blue-600 text-sm">Edit</Link>
         </div>
       ))}
     </div>

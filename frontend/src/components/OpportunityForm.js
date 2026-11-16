@@ -11,8 +11,8 @@ const Field = ({ label, error, children }) => (
   </label>
 );
 
-const OpportunityForm = ({ onSubmit, serverErrors = {} }) => {
-  const [form, setForm] = useState(empty);
+const OpportunityForm = ({ onSubmit, serverErrors = {}, initial = empty, submitLabel = 'Publish opportunity' }) => {
+  const [form, setForm] = useState(initial);
   const [errors, setErrors] = useState({});
   const set = (key) => (e) => setForm({ ...form, [key]: e.target.value });
   const shown = { ...errors, ...serverErrors };
@@ -45,7 +45,7 @@ const OpportunityForm = ({ onSubmit, serverErrors = {} }) => {
       <Field label="Capacity (1 to 100)" error={shown.capacity}>
         <input type="number" className={cls('capacity')} value={form.capacity} onChange={set('capacity')} />
       </Field>
-      <button type="submit" className="bg-blue-600 text-white px-4 py-2 rounded">Publish opportunity</button>
+      <button type="submit" className="bg-blue-600 text-white px-4 py-2 rounded">{submitLabel}</button>
     </form>
   );
 };
