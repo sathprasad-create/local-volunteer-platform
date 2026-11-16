@@ -3,4 +3,7 @@ const isClosed = (opportunity, now = new Date()) =>
 
 const openFilter = (now = new Date()) => ({ closedAt: null, closesAt: { $gt: now } });
 
-module.exports = { isClosed, openFilter };
+const applicationDisplayStatus = (status, opportunityClosed) =>
+    (opportunityClosed && status === 'pending' ? 'closed-not-selected' : status);
+
+module.exports = { isClosed, openFilter, applicationDisplayStatus };
