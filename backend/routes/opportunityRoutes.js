@@ -1,12 +1,13 @@
 const express = require('express');
 const { protect, authorise } = require('../middleware/authMiddleware');
 const {
-    createOpportunity, getMyOpportunities, getOpportunity, updateOpportunity, closeOpportunity,
+        createOpportunity, getMyOpportunities, browseOpportunities, getOpportunity, updateOpportunity, closeOpportunity,
 } = require('../controllers/opportunityController');
 
 const router = express.Router();
 
 router.post('/', protect, authorise('organiser'), createOpportunity);
+router.get('/', protect, authorise('volunteer'), browseOpportunities);
 router.get('/mine', protect, authorise('organiser'), getMyOpportunities);
 router.get('/:id', protect, authorise('organiser'), getOpportunity);
 router.put('/:id', protect, authorise('organiser'), updateOpportunity);
