@@ -1,5 +1,6 @@
 const Opportunity = require('../models/Opportunity');
 const { validateOpportunity } = require('../validators/opportunityValidator');
+const { isClosed } = require('../utils/opportunityStatus');
 
 const createOpportunity = async (req, res) => {
     const errors = validateOpportunity(req.body);
@@ -25,6 +26,7 @@ const getMyOpportunities = async (req, res) => {
         res.status(500).json({ message: error.message });
     }
 };
+
 const loadOwned = async (req, res) => {
     const opportunity = await Opportunity.findById(req.params.id).catch(() => null);
     if (!opportunity) {
@@ -47,7 +49,9 @@ const updateOpportunity = async (req, res) => {
     try {
         const opportunity = await loadOwned(req, res);
         if (!opportunity) return;
-
+        if (isClosed(opportunity)) {
+            return res.status(409).json({ message: 'Closed opportunity cannot be edited' });
+        }
         const errors = validateOpportunity(req.body);
         const capacity = Number(req.body.capacity);
         if (!errors.capacity && capacity < opportunity.approvedCount) {
@@ -64,4 +68,19 @@ const updateOpportunity = async (req, res) => {
         res.status(500).json({ message: error.message });
     }
 };
-module.exports = { createOpportunity, getMyOpportunities, getOpportunity, updateOpportunity };
+
+const closeOpportunity = async (req, res) => {
+    try {
+        const opportunity = await loadOwned(req, res);
+        if (!opportunity) return;
+        if (isClosed(opportunity)) {
+            return res.status(409).json({ message: 'This opportunity is already closed' });
+        }
+        opportunity.closedAt = new Date();
+        res.json(await opportunity.save());
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+};
+
+module.exports = { createOpportunity, getMyOpportunities, getOpportunity, updateOpportunity, closeOpportunity };
