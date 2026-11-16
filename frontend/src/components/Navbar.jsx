@@ -13,7 +13,7 @@ const Navbar = () => {
 
   return (
     <nav className="bg-blue-600 text-white p-4 flex justify-between items-center">
-      <<Link to={user ? roleHome(user.role) : '/login'} className="text-2xl font-bold">Local Volunteer Platform</Link>
+      <Link to={user ? roleHome(user.role) : '/login'} className="text-2xl font-bold">Local Volunteer Platform</Link>
       <div>
         {user ? (
           <>
