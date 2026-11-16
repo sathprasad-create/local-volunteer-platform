@@ -57,8 +57,8 @@ const updateOpportunity = async (req, res) => {
             return res.status(400).json({ message: 'Please fix the highlighted fields', errors });
         }
 
-        const { title, description, location, eventDate, closesAt, capacity } = req.body;
-        Object.assign(opportunity, { title, description, location, eventDate, closesAt, capacity: Number(capacity) });
+        const { title, description, location, eventDate, closesAt } = req.body;
+        Object.assign(opportunity, { title, description, location, eventDate, closesAt, capacity });
         res.json(await opportunity.save());
     } catch (error) {
         res.status(500).json({ message: error.message });
