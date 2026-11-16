@@ -49,7 +49,9 @@ const updateOpportunity = async (req, res) => {
     try {
         const opportunity = await loadOwned(req, res);
         if (!opportunity) return;
-
+        if (isClosed(opportunity)) {
+            return res.status(409).json({ message: 'Closed opportunity cannot be edited' });
+        }
         const errors = validateOpportunity(req.body);
         const capacity = Number(req.body.capacity);
         if (!errors.capacity && capacity < opportunity.approvedCount) {

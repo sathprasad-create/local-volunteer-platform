@@ -62,4 +62,12 @@ describe('PATCH /api/opportunities/:id/close', () => {
         const res = await chai.request(app).patch('/api/opportunities/opp1/close').set('Authorization', `Bearer ${token}`);
         expect(res).to.have.status(409);
     });
+    
+    it('refuses to edit a closed opportunity', async () => {
+        const token = signInAs('o1');
+        sinon.stub(Opportunity, 'findById').resolves(existing({ closedAt: '2026-11-15' }));
+        const res = await chai.request(app).put('/api/opportunities/opp1').set('Authorization', `Bearer ${token}`)
+            .send({ title: 'Beach clean-up', location: 'Kurnell', eventDate: '2030-11-28', closesAt: '2030-11-26', capacity: 10 });
+        expect(res).to.have.status(409);
+    });
 });
