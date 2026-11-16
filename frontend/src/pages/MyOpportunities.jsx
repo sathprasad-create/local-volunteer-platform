@@ -9,19 +9,23 @@ const MyOpportunities = () => {
   const [items, setItems] = useState(null);
   const [error, setError] = useState('');
   const [confirmingId, setConfirmingId] = useState(null);
+  const [filter, setFilter] = useState('all');
   const auth = { headers: { Authorization: `Bearer ${user.token}` } };
 
-  useEffect(() => {
-    axiosInstance.get('/api/opportunities/mine', { headers: { Authorization: `Bearer ${user.token}` } })
+    useEffect(() => {
+    const query = filter === 'all' ? '' : `?status=${filter}`;
+    axiosInstance.get(`/api/opportunities/mine${query}`, { headers: { Authorization: `Bearer ${user.token}` } })
       .then((res) => setItems(res.data))
       .catch(() => setError('Could not load your opportunities.'));
-  }, [user.token]);
+  }, [user.token, filter]);
 
   const closeOne = async (id) => {
     setError('');
     try {
       const { data } = await axiosInstance.patch(`/api/opportunities/${id}/close`, {}, auth);
-      setItems((list) => list.map((o) => (o._id === id ? data : o)));
+            setItems((list) => (filter === 'open'
+        ? list.filter((o) => o._id !== id)
+        : list.map((o) => (o._id === id ? data : o))));
       setConfirmingId(null);
     } catch (err) {
       setError(err.response?.data?.message || 'Could not close this opportunity.');
@@ -41,8 +45,22 @@ const MyOpportunities = () => {
         <div className="border-2 border-green-700 rounded p-2 mb-4 font-semibold">Saved: {location.state.updated}</div>
       )}
       {error && <div className="border-2 border-red-700 text-red-700 rounded p-2 mb-4">{error}</div>}
+      <div className="flex gap-2 mb-4 text-sm">
+        {['all', 'open', 'closed'].map((f) => (
+          <button
+            key={f}
+            type="button"
+            onClick={() => setFilter(f)}
+            className={`border rounded-full px-3 py-1 ${filter === f ? 'border-gray-800 font-bold' : 'border-gray-400'}`}
+          >
+            {f === 'all' ? 'All' : f === 'open' ? 'Open' : 'Closed'}
+          </button>
+        ))}
+      </div>
       {items && items.length === 0 && (
-        <div className="border-2 border-dashed rounded p-8 text-center text-gray-600">No opportunities yet. Create your first one.</div>
+        <div className="border-2 border-dashed rounded p-8 text-center text-gray-600">
+          {filter === 'all' ? 'No opportunities yet. Create your first.' : `No ${filter} opportunities.`}
+        </div>
       )}
       {items && items.map((o) => (
         <div key={o._id} className="border rounded p-3 mb-3">
