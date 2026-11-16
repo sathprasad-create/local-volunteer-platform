@@ -29,7 +29,16 @@ const getMyOpportunities = async (req, res) => {
         res.status(500).json({ message: error.message });
     }
 };
-
+const browseOpportunities = async (req, res) => {
+    try {
+        const opportunities = await Opportunity.find(openFilter())
+            .select('title description location eventDate closesAt capacity approvedCount')
+            .sort({ eventDate: 1 });
+        res.json(opportunities);
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+};
 const loadOwned = async (req, res) => {
     const opportunity = await Opportunity.findById(req.params.id).catch(() => null);
     if (!opportunity) {
@@ -86,4 +95,6 @@ const closeOpportunity = async (req, res) => {
     }
 };
 
-module.exports = { createOpportunity, getMyOpportunities, getOpportunity, updateOpportunity, closeOpportunity };
+module.exports = {
+    createOpportunity, getMyOpportunities, browseOpportunities, getOpportunity, updateOpportunity, closeOpportunity,
+};
