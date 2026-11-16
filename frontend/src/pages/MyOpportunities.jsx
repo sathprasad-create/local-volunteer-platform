@@ -8,12 +8,25 @@ const MyOpportunities = () => {
   const location = useLocation();
   const [items, setItems] = useState(null);
   const [error, setError] = useState('');
+  const [confirmingId, setConfirmingId] = useState(null);
+  const auth = { headers: { Authorization: `Bearer ${user.token}` } };
 
   useEffect(() => {
     axiosInstance.get('/api/opportunities/mine', { headers: { Authorization: `Bearer ${user.token}` } })
       .then((res) => setItems(res.data))
       .catch(() => setError('Could not load your opportunities.'));
   }, [user.token]);
+
+  const closeOne = async (id) => {
+    setError('');
+    try {
+      const { data } = await axiosInstance.patch(`/api/opportunities/${id}/close`, {}, auth);
+      setItems((list) => list.map((o) => (o._id === id ? data : o)));
+      setConfirmingId(null);
+    } catch (err) {
+      setError(err.response?.data?.message || 'Could not close this opportunity.');
+    }
+  };
 
   return (
     <div className="max-w-3xl mx-auto mt-10 px-4">
@@ -27,7 +40,7 @@ const MyOpportunities = () => {
       {location.state?.updated && (
         <div className="border-2 border-green-700 rounded p-2 mb-4 font-semibold">Saved: {location.state.updated}</div>
       )}
-      {error && <p className="text-red-700">{error}</p>}
+      {error && <div className="border-2 border-red-700 text-red-700 rounded p-2 mb-4">{error}</div>}
       {items && items.length === 0 && (
         <div className="border-2 border-dashed rounded p-8 text-center text-gray-600">No opportunities yet. Create your first one.</div>
       )}
@@ -35,13 +48,28 @@ const MyOpportunities = () => {
         <div key={o._id} className="border rounded p-3 mb-3">
           <div className="flex justify-between">
             <strong>{o.title}</strong>
-            <span className="border rounded-full px-2 text-sm">Open</span>
+            <span className={`border rounded-full px-2 text-sm ${o.status === 'closed' ? 'border-dashed text-gray-600' : ''}`}>
+              {o.status === 'closed' ? 'Closed' : 'Open'}
+            </span>
           </div>
           <div className="text-sm text-gray-600">
             {new Date(o.eventDate).toLocaleDateString()} · {o.location} · closes {new Date(o.closesAt).toLocaleDateString()}
           </div>
           <div className="text-sm">{o.approvedCount} of {o.capacity} places filled</div>
-          <Link to={`/organiser/opportunities/${o._id}/edit`} className="text-blue-600 text-sm">Edit</Link>
+          {o.status === 'open' && confirmingId !== o._id && (
+            <div className="flex gap-4 mt-2 text-sm">
+              <Link to={`/organiser/opportunities/${o._id}/edit`} className="text-blue-700 underline">Edit</Link>
+              <button type="button" onClick={() => setConfirmingId(o._id)} className="text-red-700 underline">Close</button>
+            </div>
+          )}
+          {confirmingId === o._id && (
+            <div className="border-2 border-gray-800 rounded p-3 mt-2 text-sm">
+              <p className="font-semibold">Close {o.title}?</p>
+              <p className="mb-2">No new applications will be accepted. Pending applications will show as Closed, not selected. Approved volunteers keep their place.</p>
+              <button type="button" onClick={() => setConfirmingId(null)} className="border border-gray-800 px-3 py-1 rounded mr-2">Cancel</button>
+              <button type="button" onClick={() => closeOne(o._id)} className="bg-gray-800 text-white px-3 py-1 rounded">Close opportunity</button>
+            </div>
+          )}
         </div>
       ))}
     </div>
