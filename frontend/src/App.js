@@ -8,6 +8,7 @@ import MyOpportunities from './pages/MyOpportunities';
 import BrowseOpportunities from './pages/BrowseOpportunities';
 import CreateOpportunity from './pages/CreateOpportunity';
 import EditOpportunity from './pages/EditOpportunity';
+import OpportunityDetail from './pages/OpportunityDetail';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route path="/opportunities" element={<RoleRoute roles={['volunteer']}><BrowseOpportunities /></RoleRoute>} />
         <Route path="/organiser/opportunities/new" element={<RoleRoute roles={['organiser']}><CreateOpportunity /></RoleRoute>} />
         <Route path="/organiser/opportunities/:id/edit" element={<RoleRoute roles={['organiser']}><EditOpportunity /></RoleRoute>} />
+        <Route path="/opportunities/:id" element={<RoleRoute roles={['volunteer']}><OpportunityDetail /></RoleRoute>} />
       </Routes>
     </Router>
   );
