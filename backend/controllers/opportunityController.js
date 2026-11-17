@@ -1,7 +1,7 @@
 const Opportunity = require('../models/Opportunity');
 const { validateOpportunity } = require('../validators/opportunityValidator');
 const { isClosed, openFilter, closedFilter } = require('../utils/opportunityStatus');
-
+const Application = require('../models/Application');
 const createOpportunity = async (req, res) => {
     const errors = validateOpportunity(req.body);
     if (Object.keys(errors).length) {
@@ -35,6 +35,21 @@ const browseOpportunities = async (req, res) => {
             .select('title description location eventDate closesAt capacity approvedCount')
             .sort({ eventDate: 1 });
         res.json(opportunities);
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+};
+
+const viewOpportunity = async (req, res) => {
+    try {
+        const opportunity = await Opportunity.findById(req.params.id).catch(() => null);
+        if (!opportunity) return res.status(404).json({ message: 'Opportunity not found' });
+        const mine = await Application.findOne({ opportunity: opportunity._id, volunteer: req.user._id });
+        const { title, description, location, eventDate, closesAt, capacity, approvedCount, status } = opportunity;
+        res.json({
+            _id: opportunity._id, title, description, location, eventDate, closesAt, capacity, approvedCount, status,
+            myApplication: mine ? mine.status : null,
+        });
     } catch (error) {
         res.status(500).json({ message: error.message });
     }
@@ -96,5 +111,5 @@ const closeOpportunity = async (req, res) => {
 };
 
 module.exports = {
-    createOpportunity, getMyOpportunities, browseOpportunities, getOpportunity, updateOpportunity, closeOpportunity,
+        createOpportunity, getMyOpportunities, browseOpportunities, viewOpportunity, getOpportunity, updateOpportunity, closeOpportunity,
 };
