@@ -1,0 +1,683 @@
+<mxfile host="app.diagrams.net" agent="IFQ636 A1" pages="4">
+  <diagram id="1_req_Requirements" name="1 req Requirements">
+    <mxGraphModel dx="1400" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="3300" pageHeight="1000" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="1 r1" value="req [Package] LocalVolunteerPlatform [Requirements]" style="shape=umlFrame;whiteSpace=wrap;html=1;width=520;height=28;boundedLbl=1;verticalAlign=top;align=left;spacingLeft=8;fontSize=13;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="10" y="10" width="3260" height="960" as="geometry" />
+        </mxCell>
+        <mxCell id="1 r2" value="&lt;div style=&quot;text-align:center&quot;&gt;«requirement»&lt;br&gt;&lt;b&gt;LocalVolunteerPlatform&lt;/b&gt;&lt;/div&gt;&lt;hr&gt;id = &quot;LVP&quot;&lt;br&gt;text = &quot;Coordinate volunteers against opportunity capacity for one community organisation.&quot;" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=6;spacingRight=4;spacingTop=2;fontSize=11;fillColor=#ffffff;strokeColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="1500" y="60" width="300" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="1 r3" value="&lt;div style=&quot;text-align:center&quot;&gt;«requirement»&lt;br&gt;&lt;b&gt;Functional requirements&lt;/b&gt;&lt;/div&gt;&lt;hr&gt;id = &quot;F&quot;" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=6;spacingRight=4;spacingTop=2;fontSize=11;fillColor=#ffffff;strokeColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="1020" y="240" width="220" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="1 r4" value="&lt;div style=&quot;text-align:center&quot;&gt;«requirement»&lt;br&gt;&lt;b&gt;Non-functional requirements&lt;/b&gt;&lt;/div&gt;&lt;hr&gt;id = &quot;NF&quot;" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=6;spacingRight=4;spacingTop=2;fontSize=11;fillColor=#ffffff;strokeColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="2740" y="240" width="220" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="1 r5" value="" style="html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;fontSize=10;endArrow=none;startArrow=circlePlus;startFill=0;startSize=12;exitX=0.3;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="1 r2" target="1 r3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="1 r6" value="" style="html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;fontSize=10;endArrow=none;startArrow=circlePlus;startFill=0;startSize=12;exitX=0.7;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="1 r2" target="1 r4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="1 r7" value="&lt;div style=&quot;text-align:center&quot;&gt;«requirement»&lt;br&gt;&lt;b&gt;R1 Two enforced roles&lt;/b&gt;&lt;/div&gt;&lt;hr&gt;id = &quot;R1&quot;&lt;br&gt;text = &quot;Two roles are enforced by the server. Registration creates Volunteers only. Organisers are seeded.&quot;&lt;br&gt;priority = Must&lt;br&gt;source = Sath scoping, D1&lt;hr&gt;&lt;i&gt;satisfiedBy&lt;/i&gt;: AuthMiddleware, AuthController&lt;br&gt;&lt;i&gt;verifiedBy&lt;/i&gt;: SC3" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=6;spacingRight=4;spacingTop=2;fontSize=11;fillColor=#ffffff;strokeColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="40" y="400" width="220" height="300" as="geometry" />
+        </mxCell>
+        <mxCell id="1 r8" value="" style="html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;fontSize=10;endArrow=none;startArrow=circlePlus;startFill=0;startSize=12;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="1 r3" target="1 r7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="1 r9" value="&lt;div style=&quot;text-align:center&quot;&gt;«requirement»&lt;br&gt;&lt;b&gt;R2 Create opportunity&lt;/b&gt;&lt;/div&gt;&lt;hr&gt;id = &quot;R2&quot;&lt;br&gt;text = &quot;An Organiser creates an opportunity: title 3 to 100 chars, description up to 1,000, location, future event date, close date on or before the event, capacity 1 to 100.&quot;&lt;br&gt;priority = Must&lt;br&gt;source = Sath scoping, D10&lt;hr&gt;&lt;i&gt;satisfiedBy&lt;/i&gt;: OpportunityController.create()&lt;br&gt;&lt;i&gt;verifiedBy&lt;/i&gt;: SC2" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=6;spacingRight=4;spacingTop=2;fontSize=11;fillColor=#ffffff;strokeColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="280" y="400" width="220" height="300" as="geometry" />
+        </mxCell>
+        <mxCell id="1 r10" value="" style="html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;fontSize=10;endArrow=none;startArrow=circlePlus;startFill=0;startSize=12;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="1 r3" target="1 r9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="1 r11" value="&lt;div style=&quot;text-align:center&quot;&gt;«requirement»&lt;br&gt;&lt;b&gt;R3 Edit and close&lt;/b&gt;&lt;/div&gt;&lt;hr&gt;id = &quot;R3&quot;&lt;br&gt;text = &quot;An Organiser edits or closes their own opportunity. It closes automatically at its close date. Capacity cannot drop below the approved count.&quot;&lt;br&gt;priority = Must&lt;br&gt;source = Sath review, D7, D9&lt;hr&gt;&lt;i&gt;satisfiedBy&lt;/i&gt;: OpportunityController.update(), close()&lt;br&gt;&lt;i&gt;verifiedBy&lt;/i&gt;: SC2" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=6;spacingRight=4;spacingTop=2;fontSize=11;fillColor=#ffffff;strokeColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="520" y="400" width="220" height="300" as="geometry" />
+        </mxCell>
+        <mxCell id="1 r12" value="" style="html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;fontSize=10;endArrow=none;startArrow=circlePlus;startFill=0;startSize=12;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="1 r3" target="1 r11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="1 r13" value="&lt;div style=&quot;text-align:center&quot;&gt;«requirement»&lt;br&gt;&lt;b&gt;R4 Browse open opportunities&lt;/b&gt;&lt;/div&gt;&lt;hr&gt;id = &quot;R4&quot;&lt;br&gt;text = &quot;A Volunteer browses open, future opportunities with the places remaining.&quot;&lt;br&gt;priority = Must&lt;br&gt;source = Sath scoping&lt;hr&gt;&lt;i&gt;satisfiedBy&lt;/i&gt;: OpportunityController.listOpen(), Browse page&lt;br&gt;&lt;i&gt;verifiedBy&lt;/i&gt;: SC4" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=6;spacingRight=4;spacingTop=2;fontSize=11;fillColor=#ffffff;strokeColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="760" y="400" width="220" height="300" as="geometry" />
+        </mxCell>
+        <mxCell id="1 r14" value="" style="html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;fontSize=10;endArrow=none;startArrow=circlePlus;startFill=0;startSize=12;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="1 r3" target="1 r13">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="1 r15" value="&lt;div style=&quot;text-align:center&quot;&gt;«requirement»&lt;br&gt;&lt;b&gt;R5 Apply once&lt;/b&gt;&lt;/div&gt;&lt;hr&gt;id = &quot;R5&quot;&lt;br&gt;text = &quot;A Volunteer applies once per opportunity. Closed, past or full opportunities refuse with a reason.&quot;&lt;br&gt;priority = Must&lt;br&gt;source = Sath scoping, D8&lt;hr&gt;&lt;i&gt;satisfiedBy&lt;/i&gt;: ApplicationController.apply()&lt;br&gt;&lt;i&gt;verifiedBy&lt;/i&gt;: SC2, SC4" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=6;spacingRight=4;spacingTop=2;fontSize=11;fillColor=#ffffff;strokeColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="1000" y="400" width="220" height="300" as="geometry" />
+        </mxCell>
+        <mxCell id="1 r16" value="" style="html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;fontSize=10;endArrow=none;startArrow=circlePlus;startFill=0;startSize=12;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="1 r3" target="1 r15">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="1 r17" value="&lt;div style=&quot;text-align:center&quot;&gt;«requirement»&lt;br&gt;&lt;b&gt;R6 Decide within capacity&lt;/b&gt;&lt;/div&gt;&lt;hr&gt;id = &quot;R6&quot;&lt;br&gt;text = &quot;An Organiser approves or rejects Pending applications. Approvals never exceed capacity.&quot;&lt;br&gt;priority = Must&lt;br&gt;source = Sath scoping&lt;hr&gt;&lt;i&gt;satisfiedBy&lt;/i&gt;: ApplicationController.decide()&lt;br&gt;&lt;i&gt;verifiedBy&lt;/i&gt;: SC1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=6;spacingRight=4;spacingTop=2;fontSize=11;fillColor=#ffffff;strokeColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="1240" y="400" width="220" height="300" as="geometry" />
+        </mxCell>
+        <mxCell id="1 r18" value="" style="html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;fontSize=10;endArrow=none;startArrow=circlePlus;startFill=0;startSize=12;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="1 r3" target="1 r17">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="1 r19" value="&lt;div style=&quot;text-align:center&quot;&gt;«requirement»&lt;br&gt;&lt;b&gt;R7 See application status&lt;/b&gt;&lt;/div&gt;&lt;hr&gt;id = &quot;R7&quot;&lt;br&gt;text = &quot;A Volunteer sees the current status of each application.&quot;&lt;br&gt;priority = Must&lt;br&gt;source = Sath scoping&lt;hr&gt;&lt;i&gt;satisfiedBy&lt;/i&gt;: ApplicationController.listMine(), MyApplications page&lt;br&gt;&lt;i&gt;verifiedBy&lt;/i&gt;: SC5" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=6;spacingRight=4;spacingTop=2;fontSize=11;fillColor=#ffffff;strokeColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="1480" y="400" width="220" height="300" as="geometry" />
+        </mxCell>
+        <mxCell id="1 r20" value="" style="html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;fontSize=10;endArrow=none;startArrow=circlePlus;startFill=0;startSize=12;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="1 r3" target="1 r19">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="1 r21" value="&lt;div style=&quot;text-align:center&quot;&gt;«requirement»&lt;br&gt;&lt;b&gt;R8 Withdraw&lt;/b&gt;&lt;/div&gt;&lt;hr&gt;id = &quot;R8&quot;&lt;br&gt;text = &quot;A Volunteer withdraws a Pending or Approved application before the event, freeing the place.&quot;&lt;br&gt;priority = Should&lt;br&gt;source = Sath scoping&lt;hr&gt;&lt;i&gt;satisfiedBy&lt;/i&gt;: ApplicationController.withdraw()&lt;br&gt;&lt;i&gt;verifiedBy&lt;/i&gt;: SC1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=6;spacingRight=4;spacingTop=2;fontSize=11;fillColor=#ffffff;strokeColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="1720" y="400" width="220" height="300" as="geometry" />
+        </mxCell>
+        <mxCell id="1 r22" value="" style="html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;fontSize=10;endArrow=none;startArrow=circlePlus;startFill=0;startSize=12;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="1 r3" target="1 r21">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="1 r23" value="&lt;div style=&quot;text-align:center&quot;&gt;«requirement»&lt;br&gt;&lt;b&gt;R9 Filled against capacity&lt;/b&gt;&lt;/div&gt;&lt;hr&gt;id = &quot;R9&quot;&lt;br&gt;text = &quot;An Organiser sees filled against capacity for each opportunity, Open and Closed.&quot;&lt;br&gt;priority = Should&lt;br&gt;source = Sath review, D7&lt;hr&gt;&lt;i&gt;satisfiedBy&lt;/i&gt;: OpportunityController.listMine(), CapacityMeter&lt;br&gt;&lt;i&gt;verifiedBy&lt;/i&gt;: SC5" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=6;spacingRight=4;spacingTop=2;fontSize=11;fillColor=#ffffff;strokeColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="1960" y="400" width="220" height="300" as="geometry" />
+        </mxCell>
+        <mxCell id="1 r24" value="" style="html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;fontSize=10;endArrow=none;startArrow=circlePlus;startFill=0;startSize=12;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="1 r3" target="1 r23">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="1 r25" value="&lt;div style=&quot;text-align:center&quot;&gt;«requirement»&lt;br&gt;&lt;b&gt;R10 Waitlist&lt;/b&gt;&lt;/div&gt;&lt;hr&gt;id = &quot;R10&quot;&lt;br&gt;text = &quot;A Volunteer joins a waitlist for a full opportunity.&quot;&lt;br&gt;priority = Could&lt;br&gt;status = deferred, D8&lt;br&gt;source = Sath review&lt;hr&gt;&lt;i&gt;satisfiedBy&lt;/i&gt;: none (deferred)&lt;br&gt;&lt;i&gt;verifiedBy&lt;/i&gt;: none" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=6;spacingRight=4;spacingTop=2;fontSize=11;fillColor=#ffffff;strokeColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="2200" y="400" width="220" height="300" as="geometry" />
+        </mxCell>
+        <mxCell id="1 r26" value="" style="html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;fontSize=10;endArrow=none;startArrow=circlePlus;startFill=0;startSize=12;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="1 r3" target="1 r25">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="1 r27" value="&lt;div style=&quot;text-align:center&quot;&gt;«requirement»&lt;br&gt;&lt;b&gt;NFR1 Restart resilience&lt;/b&gt;&lt;/div&gt;&lt;hr&gt;id = &quot;NFR1&quot;&lt;br&gt;text = &quot;The application is available and fully functional after its host restarts, without code or configuration changes, including when the host's network address changes.&quot;&lt;br&gt;priority = Must&lt;br&gt;source = OLA Q&amp;A 3 Nov 2026, FAQ 0.6&lt;hr&gt;&lt;i&gt;satisfiedBy&lt;/i&gt;: WebServer (nginx), APIServer (PM2 startup)&lt;br&gt;&lt;i&gt;verifiedBy&lt;/i&gt;: SC6" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=6;spacingRight=4;spacingTop=2;fontSize=11;fillColor=#ffffff;strokeColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="2500" y="400" width="220" height="300" as="geometry" />
+        </mxCell>
+        <mxCell id="1 r28" value="" style="html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;fontSize=10;endArrow=none;startArrow=circlePlus;startFill=0;startSize=12;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="1 r4" target="1 r27">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="1 r29" value="&lt;div style=&quot;text-align:center&quot;&gt;«requirement»&lt;br&gt;&lt;b&gt;NFR2 Security&lt;/b&gt;&lt;/div&gt;&lt;hr&gt;id = &quot;NFR2&quot;&lt;br&gt;text = &quot;Passwords hashed, signed tokens, no committed secrets, wrong role returns 403.&quot;&lt;br&gt;priority = Must&lt;br&gt;source = A1 spec Step 5&lt;hr&gt;&lt;i&gt;satisfiedBy&lt;/i&gt;: AuthMiddleware, Config&lt;br&gt;&lt;i&gt;verifiedBy&lt;/i&gt;: SC3" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=6;spacingRight=4;spacingTop=2;fontSize=11;fillColor=#ffffff;strokeColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="2740" y="400" width="220" height="300" as="geometry" />
+        </mxCell>
+        <mxCell id="1 r30" value="" style="html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;fontSize=10;endArrow=none;startArrow=circlePlus;startFill=0;startSize=12;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="1 r4" target="1 r29">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="1 r31" value="&lt;div style=&quot;text-align:center&quot;&gt;«requirement»&lt;br&gt;&lt;b&gt;NFR3 Usability&lt;/b&gt;&lt;/div&gt;&lt;hr&gt;id = &quot;NFR3&quot;&lt;br&gt;text = &quot;Every validation failure shows a message at the field. Every list has an empty state.&quot;&lt;br&gt;priority = Must&lt;br&gt;source = A1 spec Step 3&lt;hr&gt;&lt;i&gt;satisfiedBy&lt;/i&gt;: ReactClient (FormField, EmptyState)&lt;br&gt;&lt;i&gt;verifiedBy&lt;/i&gt;: SC2" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=6;spacingRight=4;spacingTop=2;fontSize=11;fillColor=#ffffff;strokeColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="2980" y="400" width="220" height="300" as="geometry" />
+        </mxCell>
+        <mxCell id="1 r32" value="" style="html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;fontSize=10;endArrow=none;startArrow=circlePlus;startFill=0;startSize=12;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="1 r4" target="1 r31">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="1 r33" value="«deriveReqt»" style="html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;fontSize=10;dashed=1;endArrow=open;endFill=0;endSize=10;exitX=0.75;exitY=1;exitDx=0;exitDy=0;entryX=0.2;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="1 r19" target="1 r17">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1645.0" y="725" />
+              <mxPoint x="1284.0" y="725" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="1 r34" value="«deriveReqt»" style="html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;fontSize=10;dashed=1;endArrow=open;endFill=0;endSize=10;exitX=0.75;exitY=1;exitDx=0;exitDy=0;entryX=0.35;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="1 r21" target="1 r17">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1885.0" y="745" />
+              <mxPoint x="1317.0" y="745" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="1 r35" value="«deriveReqt»" style="html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;fontSize=10;dashed=1;endArrow=open;endFill=0;endSize=10;exitX=0.75;exitY=1;exitDx=0;exitDy=0;entryX=0.25;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="1 r15" target="1 r11">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1165.0" y="765" />
+              <mxPoint x="575.0" y="765" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="1 r36" value="«deriveReqt»" style="html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;fontSize=10;dashed=1;endArrow=open;endFill=0;endSize=10;exitX=0.75;exitY=1;exitDx=0;exitDy=0;entryX=0.3;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="1 r25" target="1 r15">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="2365.0" y="785" />
+              <mxPoint x="1066.0" y="785" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="1 r37" value="&lt;div style=&quot;text-align:center&quot;&gt;«testCase»&lt;br&gt;&lt;b&gt;SC3 Role isolation&lt;/b&gt;&lt;/div&gt;&lt;hr&gt;Every Organiser endpoint returns 403 to a Volunteer token" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=6;spacingRight=4;spacingTop=2;fontSize=11;fillColor=#ffffff;strokeColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="40" y="800" width="220" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="1 r38" value="«verify»" style="html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;fontSize=10;dashed=1;endArrow=open;endFill=0;endSize=10;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="1 r37" target="1 r7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="1 r39" value="&lt;div style=&quot;text-align:center&quot;&gt;«testCase»&lt;br&gt;&lt;b&gt;SC2 Invalid input rejected&lt;/b&gt;&lt;/div&gt;&lt;hr&gt;6 of 6 invalid cases rejected with field messages" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=6;spacingRight=4;spacingTop=2;fontSize=11;fillColor=#ffffff;strokeColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="280" y="800" width="220" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="1 r40" value="«verify»" style="html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;fontSize=10;dashed=1;endArrow=open;endFill=0;endSize=10;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="1 r39" target="1 r9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="1 r41" value="&lt;div style=&quot;text-align:center&quot;&gt;«testCase»&lt;br&gt;&lt;b&gt;SC4 Short journey&lt;/b&gt;&lt;/div&gt;&lt;hr&gt;Login to applied in 4 interactions or fewer" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=6;spacingRight=4;spacingTop=2;fontSize=11;fillColor=#ffffff;strokeColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="760" y="800" width="220" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="1 r42" value="«verify»" style="html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;fontSize=10;dashed=1;endArrow=open;endFill=0;endSize=10;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="1 r41" target="1 r13">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="1 r43" value="&lt;div style=&quot;text-align:center&quot;&gt;«testCase»&lt;br&gt;&lt;b&gt;SC1 Capacity never exceeded&lt;/b&gt;&lt;/div&gt;&lt;hr&gt;0 over-approvals. Approve when full returns 409" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=6;spacingRight=4;spacingTop=2;fontSize=11;fillColor=#ffffff;strokeColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="1240" y="800" width="220" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="1 r44" value="«verify»" style="html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;fontSize=10;dashed=1;endArrow=open;endFill=0;endSize=10;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="1 r43" target="1 r17">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="1 r45" value="&lt;div style=&quot;text-align:center&quot;&gt;«testCase»&lt;br&gt;&lt;b&gt;SC5 Status visible&lt;/b&gt;&lt;/div&gt;&lt;hr&gt;Decision visible on next page load" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=6;spacingRight=4;spacingTop=2;fontSize=11;fillColor=#ffffff;strokeColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="1480" y="800" width="220" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="1 r46" value="«verify»" style="html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;fontSize=10;dashed=1;endArrow=open;endFill=0;endSize=10;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="1 r45" target="1 r19">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="1 r47" value="&lt;div style=&quot;text-align:center&quot;&gt;«testCase»&lt;br&gt;&lt;b&gt;SC6 Restart recovery&lt;/b&gt;&lt;/div&gt;&lt;hr&gt;Works at new IP within 5 min, 0 edits" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=6;spacingRight=4;spacingTop=2;fontSize=11;fillColor=#ffffff;strokeColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="2500" y="800" width="220" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="1 r48" value="«verify»" style="html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;fontSize=10;dashed=1;endArrow=open;endFill=0;endSize=10;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="1 r47" target="1 r27">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="1 r49" value="Organiser" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="612.0" y="812.0" width="36" height="66" as="geometry" />
+        </mxCell>
+        <mxCell id="1 r50" value="«trace»" style="html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;fontSize=10;dashed=1;endArrow=open;endFill=0;endSize=10;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="1 r11" target="1 r49">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="1 r51" value="Volunteer" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1092.0" y="812.0" width="36" height="66" as="geometry" />
+        </mxCell>
+        <mxCell id="1 r52" value="«trace»" style="html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;fontSize=10;dashed=1;endArrow=open;endFill=0;endSize=10;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="1 r15" target="1 r51">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="1 r53" value="Platform operator" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="2832.0" y="812.0" width="36" height="66" as="geometry" />
+        </mxCell>
+        <mxCell id="1 r54" value="«trace»" style="html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;fontSize=10;dashed=1;endArrow=open;endFill=0;endSize=10;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="1 r29" target="1 r53">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="2_bdd_System_structure" name="2 bdd System structure">
+    <mxGraphModel dx="817" dy="1757" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1960" pageHeight="1300" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="2 b1" parent="1" style="shape=umlFrame;whiteSpace=wrap;html=1;width=520;height=28;boundedLbl=1;verticalAlign=top;align=left;spacingLeft=8;fontSize=13;fillColor=none;" value="bdd [Package] LocalVolunteerPlatform [System structure]" vertex="1">
+          <mxGeometry height="1260" width="1920" x="10" y="-10" as="geometry" />
+        </mxCell>
+        <mxCell id="2 b2" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=6;spacingRight=4;spacingTop=2;fontSize=11;fillColor=#ffffff;strokeColor=#000000;" value="&lt;div style=&quot;text-align:center&quot;&gt;«block»&lt;br&gt;&lt;b&gt;LocalVolunteerPlatform&lt;/b&gt;&lt;/div&gt;&lt;hr&gt;&lt;i&gt;values&lt;/i&gt;&lt;br&gt;host : EC2Instance (t3.medium)" vertex="1">
+          <mxGeometry height="90" width="300" x="780" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="2 b3" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=6;spacingRight=4;spacingTop=2;fontSize=11;fillColor=#ffffff;strokeColor=#000000;" value="&lt;div style=&quot;text-align:center&quot;&gt;«block»&lt;br&gt;&lt;b&gt;ReactClient&lt;/b&gt;&lt;/div&gt;&lt;hr&gt;&lt;i&gt;parts&lt;/i&gt;&lt;br&gt;pages : MyOpportunities, OpportunityForm, Applicants, Browse, OpportunityDetail, MyApplications&lt;br&gt;components : Navbar, OpportunityCard, StatusBadge, FormField, EmptyState, Toast, ConfirmModal, CapacityMeter&lt;hr&gt;&lt;i&gt;values&lt;/i&gt;&lt;br&gt;apiBase : String = &quot;/api&quot; (relative, D4)&lt;hr&gt;&lt;i&gt;operations&lt;/i&gt;&lt;br&gt;renderForRole(role)&lt;hr&gt;&lt;i&gt;satisfies&lt;/i&gt; «requirement» R4, R7, R9, NFR3" vertex="1">
+          <mxGeometry height="330" width="340" x="40" y="220" as="geometry" />
+        </mxCell>
+        <mxCell id="2 b4" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=6;spacingRight=4;spacingTop=2;fontSize=11;fillColor=#ffffff;strokeColor=#000000;" value="&lt;div style=&quot;text-align:center&quot;&gt;«block»&lt;br&gt;&lt;b&gt;WebServer (nginx)&lt;/b&gt;&lt;/div&gt;&lt;hr&gt;&lt;i&gt;values&lt;/i&gt;&lt;br&gt;port : Integer = 80&lt;hr&gt;&lt;i&gt;operations&lt;/i&gt;&lt;br&gt;serveStatic(build)&lt;br&gt;proxy(&quot;/api&quot; to :5001)&lt;hr&gt;&lt;i&gt;satisfies&lt;/i&gt; «requirement» NFR1" vertex="1">
+          <mxGeometry height="190" width="260" x="440" y="220" as="geometry" />
+        </mxCell>
+        <mxCell id="2 b5" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=6;spacingRight=4;spacingTop=2;fontSize=11;fillColor=#ffffff;strokeColor=#000000;" value="&lt;div style=&quot;text-align:center&quot;&gt;«block»&lt;br&gt;&lt;b&gt;APIServer (Express on Node 22)&lt;/b&gt;&lt;/div&gt;&lt;hr&gt;&lt;i&gt;values&lt;/i&gt;&lt;br&gt;port : Integer = 5001&lt;br&gt;manager : PM2 (startup on boot, D5)&lt;hr&gt;&lt;i&gt;operations&lt;/i&gt;&lt;br&gt;route(request)&lt;hr&gt;&lt;i&gt;satisfies&lt;/i&gt; «requirement» NFR1" vertex="1">
+          <mxGeometry height="190" width="300" x="780" y="220" as="geometry" />
+        </mxCell>
+        <mxCell id="2 b6" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=6;spacingRight=4;spacingTop=2;fontSize=11;fillColor=#ffffff;strokeColor=#000000;" value="&lt;div style=&quot;text-align:center&quot;&gt;«block» «external»&lt;br&gt;&lt;b&gt;Database (MongoDB Atlas)&lt;/b&gt;&lt;/div&gt;&lt;hr&gt;&lt;i&gt;values&lt;/i&gt;&lt;br&gt;accessList = 0.0.0.0/0 (D6)&lt;br&gt;collections : users, opportunities, applications" vertex="1">
+          <mxGeometry height="150" width="300" x="1440" y="220" as="geometry" />
+        </mxCell>
+        <mxCell id="2 b7" edge="1" parent="1" source="2 b2" style="html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;fontSize=10;endArrow=none;startArrow=diamondThin;startFill=1;startSize=16;exitX=0.2;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="2 b3" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="2 b8" connectable="0" parent="2 b7" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=10;" value="1" vertex="1">
+          <mxGeometry relative="1" x="0.85" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2 b9" edge="1" parent="1" source="2 b2" style="html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;fontSize=10;endArrow=none;startArrow=diamondThin;startFill=1;startSize=16;exitX=0.4;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="2 b4" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="2 b10" connectable="0" parent="2 b9" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=10;" value="1" vertex="1">
+          <mxGeometry relative="1" x="0.85" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2 b11" edge="1" parent="1" source="2 b2" style="html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;fontSize=10;endArrow=none;startArrow=diamondThin;startFill=1;startSize=16;exitX=0.6;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="2 b5" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="2 b12" connectable="0" parent="2 b11" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=10;" value="1" vertex="1">
+          <mxGeometry relative="1" x="0.85" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2 b13" edge="1" parent="1" source="2 b5" style="html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;fontSize=10;endArrow=none;exitX=1;exitY=0.4;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="2 b6" value="persists via mongodb+srv (TLS)">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="2 b14" connectable="0" parent="2 b13" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=10;" value="1" vertex="1">
+          <mxGeometry relative="1" x="-0.85" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2 b15" connectable="0" parent="2 b13" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=10;" value="1" vertex="1">
+          <mxGeometry relative="1" x="0.85" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2 b16" edge="1" parent="1" source="2 b4" style="html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;fontSize=10;endArrow=none;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="2 b5" value="HTTP proxy">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="2 b17" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=6;spacingRight=4;spacingTop=2;fontSize=11;fillColor=#ffffff;strokeColor=#000000;" value="&lt;div style=&quot;text-align:center&quot;&gt;«block»&lt;br&gt;&lt;b&gt;AuthMiddleware&lt;/b&gt;&lt;/div&gt;&lt;hr&gt;&lt;i&gt;operations&lt;/i&gt;&lt;br&gt;protect(req)&lt;br&gt;authorize(roles)&lt;hr&gt;&lt;i&gt;satisfies&lt;/i&gt; «requirement» R1, NFR2" vertex="1">
+          <mxGeometry height="150" width="240" x="440" y="470" as="geometry" />
+        </mxCell>
+        <mxCell id="2 b18" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=6;spacingRight=4;spacingTop=2;fontSize=11;fillColor=#ffffff;strokeColor=#000000;" value="&lt;div style=&quot;text-align:center&quot;&gt;«block»&lt;br&gt;&lt;b&gt;AuthController&lt;/b&gt;&lt;/div&gt;&lt;hr&gt;&lt;i&gt;operations&lt;/i&gt;&lt;br&gt;register()&lt;br&gt;login()&lt;br&gt;getProfile()&lt;hr&gt;&lt;i&gt;satisfies&lt;/i&gt; «requirement» R1" vertex="1">
+          <mxGeometry height="150" width="240" x="700" y="470" as="geometry" />
+        </mxCell>
+        <mxCell id="2 b19" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=6;spacingRight=4;spacingTop=2;fontSize=11;fillColor=#ffffff;strokeColor=#000000;" value="&lt;div style=&quot;text-align:center&quot;&gt;«block»&lt;br&gt;&lt;b&gt;OpportunityController&lt;/b&gt;&lt;/div&gt;&lt;hr&gt;&lt;i&gt;operations&lt;/i&gt;&lt;br&gt;create()&lt;br&gt;update()&lt;br&gt;close()&lt;br&gt;listOpen()&lt;br&gt;listMine()&lt;br&gt;getById()&lt;hr&gt;&lt;i&gt;satisfies&lt;/i&gt; «requirement» R2, R3, R4, R9" vertex="1">
+          <mxGeometry height="190" width="250" x="960" y="470" as="geometry" />
+        </mxCell>
+        <mxCell id="2 b20" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=6;spacingRight=4;spacingTop=2;fontSize=11;fillColor=#ffffff;strokeColor=#000000;" value="&lt;div style=&quot;text-align:center&quot;&gt;«block»&lt;br&gt;&lt;b&gt;ApplicationController&lt;/b&gt;&lt;/div&gt;&lt;hr&gt;&lt;i&gt;operations&lt;/i&gt;&lt;br&gt;apply()&lt;br&gt;listForOpportunity()&lt;br&gt;decide()&lt;br&gt;listMine()&lt;br&gt;withdraw()&lt;hr&gt;&lt;i&gt;satisfies&lt;/i&gt; «requirement» R5, R6, R7, R8" vertex="1">
+          <mxGeometry height="190" width="250" x="1230" y="470" as="geometry" />
+        </mxCell>
+        <mxCell id="2 b21" edge="1" parent="1" source="2 b5" style="html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;fontSize=10;endArrow=none;startArrow=diamondThin;startFill=1;startSize=16;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="2 b17" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="2 b22" connectable="0" parent="2 b21" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=10;" value="1" vertex="1">
+          <mxGeometry relative="1" x="0.85" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2 b23" edge="1" parent="1" source="2 b5" style="html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;fontSize=10;endArrow=none;startArrow=diamondThin;startFill=1;startSize=16;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="2 b18" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="2 b24" connectable="0" parent="2 b23" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=10;" value="1" vertex="1">
+          <mxGeometry relative="1" x="0.85" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2 b25" edge="1" parent="1" source="2 b5" style="html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;fontSize=10;endArrow=none;startArrow=diamondThin;startFill=1;startSize=16;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="2 b19" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="2 b26" connectable="0" parent="2 b25" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=10;" value="1" vertex="1">
+          <mxGeometry relative="1" x="0.85" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2 b27" edge="1" parent="1" source="2 b5" style="html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;fontSize=10;endArrow=none;startArrow=diamondThin;startFill=1;startSize=16;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="2 b20" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="2 b28" connectable="0" parent="2 b27" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=10;" value="1" vertex="1">
+          <mxGeometry relative="1" x="0.85" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2 b29" parent="1" style="shape=folder;fontStyle=0;spacingTop=8;tabWidth=170;tabHeight=26;tabPosition=left;html=1;whiteSpace=wrap;verticalAlign=top;align=left;spacingLeft=8;fillColor=#f7f7f7;fontSize=12;" value="&lt;b&gt;Models (Mongoose)&lt;/b&gt;" vertex="1">
+          <mxGeometry height="350" width="1100" x="420" y="720" as="geometry" />
+        </mxCell>
+        <mxCell id="2 b30" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=6;spacingRight=4;spacingTop=2;fontSize=11;fillColor=#ffffff;strokeColor=#000000;" value="&lt;div style=&quot;text-align:center&quot;&gt;«block»&lt;br&gt;&lt;b&gt;User&lt;/b&gt;&lt;/div&gt;&lt;hr&gt;&lt;i&gt;values&lt;/i&gt;&lt;br&gt;name : String&lt;br&gt;email : String {unique}&lt;br&gt;passwordHash : String&lt;br&gt;role : Role" vertex="1">
+          <mxGeometry height="170" width="260" x="450" y="770" as="geometry" />
+        </mxCell>
+        <mxCell id="2 b31" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=6;spacingRight=4;spacingTop=2;fontSize=11;fillColor=#ffffff;strokeColor=#000000;" value="&lt;div style=&quot;text-align:center&quot;&gt;«block»&lt;br&gt;&lt;b&gt;Opportunity&lt;/b&gt;&lt;/div&gt;&lt;hr&gt;&lt;i&gt;values&lt;/i&gt;&lt;br&gt;title : String&lt;br&gt;description : String&lt;br&gt;location : String&lt;br&gt;eventDate : Date&lt;br&gt;closesAt : Date&lt;br&gt;capacity : Integer {1..100}&lt;br&gt;approvedCount : Integer&lt;br&gt;closedAt : Date [0..1]&lt;hr&gt;&lt;i&gt;operations&lt;/i&gt;&lt;br&gt;isClosed() : Boolean (D9)&lt;br&gt;placesLeft() : Integer" vertex="1">
+          <mxGeometry height="270" width="320" x="810" y="770" as="geometry" />
+        </mxCell>
+        <mxCell id="2 b32" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=6;spacingRight=4;spacingTop=2;fontSize=11;fillColor=#ffffff;strokeColor=#000000;" value="&lt;div style=&quot;text-align:center&quot;&gt;«block»&lt;br&gt;&lt;b&gt;Application&lt;/b&gt;&lt;/div&gt;&lt;hr&gt;&lt;i&gt;values&lt;/i&gt;&lt;br&gt;message : String [0..1] {max 300}&lt;br&gt;status : ApplicationStatus&lt;br&gt;decidedAt : Date [0..1]&lt;hr&gt;&lt;i&gt;operations&lt;/i&gt;&lt;br&gt;displayStatus() : String&lt;hr&gt;&lt;i&gt;constraints&lt;/i&gt;&lt;br&gt;{unique (volunteer, opportunity)}" vertex="1">
+          <mxGeometry height="230" width="280" x="1220" y="770" as="geometry" />
+        </mxCell>
+        <mxCell id="2 b33" edge="1" parent="1" source="2 b30" style="html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;fontSize=10;endArrow=none;exitX=1;exitY=0.4;exitDx=0;exitDy=0;entryX=0;entryY=0.25;entryDx=0;entryDy=0;" target="2 b31" value="organises">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="2 b34" connectable="0" parent="2 b33" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=10;" value="organiser 1" vertex="1">
+          <mxGeometry relative="1" x="-0.75" as="geometry">
+            <mxPoint x="-13" y="-18" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2 b35" connectable="0" parent="2 b33" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=10;" value="0..*" vertex="1">
+          <mxGeometry relative="1" x="0.8" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2 b36" edge="1" parent="1" source="2 b31" style="html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;fontSize=10;endArrow=none;exitX=1.008;exitY=0.283;exitDx=0;exitDy=0;entryX=0;entryY=0.3;entryDx=0;entryDy=0;exitPerimeter=0;" target="2 b32" value="receives">
+          <mxGeometry relative="1" x="-0.0755" as="geometry" />
+        </mxCell>
+        <mxCell id="2 b37" connectable="0" parent="2 b36" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=10;" value="1" vertex="1">
+          <mxGeometry relative="1" x="-0.8" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2 b38" connectable="0" parent="2 b36" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=10;" value="0..*" vertex="1">
+          <mxGeometry relative="1" x="0.7891" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2 b39" edge="1" parent="1" source="2 b30" style="html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;fontSize=10;endArrow=none;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" target="2 b32" value="submits">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="580" y="1055" />
+              <mxPoint x="1360" y="1055" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2 b40" connectable="0" parent="2 b39" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=10;" value="volunteer 1" vertex="1">
+          <mxGeometry relative="1" x="-0.9" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2 b41" connectable="0" parent="2 b39" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=10;" value="0..*" vertex="1">
+          <mxGeometry relative="1" x="0.9" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2 b42" edge="1" parent="1" source="2 b17" style="html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;fontSize=10;dashed=1;endArrow=open;endFill=0;endSize=10;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.2;entryY=0;entryDx=0;entryDy=0;" target="2 b30" value="«use»">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="2 b43" edge="1" parent="1" source="2 b18" style="html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;fontSize=10;dashed=1;endArrow=open;endFill=0;endSize=10;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.7;entryY=0;entryDx=0;entryDy=0;" target="2 b30" value="«use»">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="2 b44" edge="1" parent="1" source="2 b19" style="html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;fontSize=10;dashed=1;endArrow=open;endFill=0;endSize=10;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="2 b31" value="«use»">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="2 b45" edge="1" parent="1" source="2 b20" style="html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;fontSize=10;dashed=1;endArrow=open;endFill=0;endSize=10;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="2 b32" value="«use»">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="2 b46" edge="1" parent="1" source="2 b20" style="html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;fontSize=10;dashed=1;endArrow=open;endFill=0;endSize=10;exitX=0.2;exitY=1;exitDx=0;exitDy=0;entryX=0.85;entryY=0;entryDx=0;entryDy=0;" target="2 b31" value="«use»">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="2 b47" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=6;spacingRight=4;spacingTop=2;fontSize=11;fillColor=#ffffff;strokeColor=#000000;" value="&lt;div style=&quot;text-align:center&quot;&gt;«enumeration»&lt;br&gt;&lt;b&gt;Role&lt;/b&gt;&lt;/div&gt;&lt;hr&gt;&lt;i&gt;values&lt;/i&gt;&lt;br&gt;organiser&lt;br&gt;volunteer" vertex="1">
+          <mxGeometry height="110" width="200" x="40" y="800" as="geometry" />
+        </mxCell>
+        <mxCell id="2 b48" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=6;spacingRight=4;spacingTop=2;fontSize=11;fillColor=#ffffff;strokeColor=#000000;" value="&lt;div style=&quot;text-align:center&quot;&gt;«enumeration»&lt;br&gt;&lt;b&gt;ApplicationStatus&lt;/b&gt;&lt;/div&gt;&lt;hr&gt;&lt;i&gt;values&lt;/i&gt;&lt;br&gt;Pending&lt;br&gt;Approved&lt;br&gt;Rejected&lt;br&gt;Withdrawn" vertex="1">
+          <mxGeometry height="150" width="220" x="1580" y="810" as="geometry" />
+        </mxCell>
+        <mxCell id="2 b49" edge="1" parent="1" source="2 b30" style="html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;fontSize=10;dashed=1;endArrow=open;endFill=0;endSize=10;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" target="2 b47" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="2 b50" edge="1" parent="1" source="2 b32" style="html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;fontSize=10;dashed=1;endArrow=open;endFill=0;endSize=10;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="2 b48" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="2 b51" parent="1" style="shape=note;whiteSpace=wrap;html=1;size=14;align=left;verticalAlign=top;spacingLeft=6;spacingTop=2;fontSize=11;fillColor=#ffffff;" value="Displayed status &quot;Closed, not selected&quot; is derived when an opportunity is closed and the application is still Pending (D9). It is not stored." vertex="1">
+          <mxGeometry height="100" width="300" x="1540" y="1050" as="geometry" />
+        </mxCell>
+        <mxCell id="TD4C60MREbw2HmMP_b8e-6" edge="1" parent="1" source="2 b51" style="endArrow=none;dashed=1;html=1;rounded=0;defaultLabelBackgroundColor=page;labelPadding=0 4;exitX=0.5;exitY=0;exitDx=-7;exitDy=0;exitPerimeter=0;entryX=0.468;entryY=1.002;entryDx=0;entryDy=0;entryPerimeter=0;" target="2 b48" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="1550" y="1030" as="sourcePoint" />
+            <mxPoint x="1600" y="980" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="4_act_Workflow_2" name="3 act Workflow 2">
+    <mxGraphModel dx="1400" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="1640" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="4 a1" value="act [Activity] ApplyAndReviewApplication [Workflow 2]" style="shape=umlFrame;whiteSpace=wrap;html=1;width=520;height=28;boundedLbl=1;verticalAlign=top;align=left;spacingLeft=8;fontSize=13;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="10" y="10" width="1380" height="1610" as="geometry" />
+        </mxCell>
+        <mxCell id="4 a2" value="Volunteer" style="swimlane;startSize=30;html=1;fontSize=13;fillColor=#f5f5f5;swimlaneFillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="30" y="50" width="420" height="1560" as="geometry" />
+        </mxCell>
+        <mxCell id="4 a3" value="System (API and database)" style="swimlane;startSize=30;html=1;fontSize=13;fillColor=#f5f5f5;swimlaneFillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="450" y="50" width="500" height="1560" as="geometry" />
+        </mxCell>
+        <mxCell id="4 a4" value="Organiser" style="swimlane;startSize=30;html=1;fontSize=13;fillColor=#f5f5f5;swimlaneFillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="950" y="50" width="420" height="1560" as="geometry" />
+        </mxCell>
+        <mxCell id="4 a5" value="" style="ellipse;html=1;shape=startState;fillColor=#000000;strokeColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="307.0" y="97.0" width="26" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="4 a6" value="Browse open opportunities" style="rounded=1;arcSize=35;whiteSpace=wrap;html=1;fontSize=11;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="225.0" y="153.0" width="190" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="4 a7" value="Open opportunity detail" style="rounded=1;arcSize=35;whiteSpace=wrap;html=1;fontSize=11;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="225.0" y="223.0" width="190" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="4 a8" value="Submit application with optional message" style="rounded=1;arcSize=35;whiteSpace=wrap;html=1;fontSize=11;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="225.0" y="299.0" width="190" height="52" as="geometry" />
+        </mxCell>
+        <mxCell id="4 a9" value="Validate token and role" style="rounded=1;arcSize=35;whiteSpace=wrap;html=1;fontSize=11;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="720.0" y="301.0" width="200" height="48" as="geometry" />
+        </mxCell>
+        <mxCell id="4 a10" value="" style="rhombus;html=1;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="802.0" y="382.0" width="36" height="36" as="geometry" />
+        </mxCell>
+        <mxCell id="4 a11" value="" style="rhombus;html=1;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="802.0" y="452.0" width="36" height="36" as="geometry" />
+        </mxCell>
+        <mxCell id="4 a12" value="" style="rhombus;html=1;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="802.0" y="522.0" width="36" height="36" as="geometry" />
+        </mxCell>
+        <mxCell id="4 a13" value="" style="rhombus;html=1;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="802.0" y="592.0" width="36" height="36" as="geometry" />
+        </mxCell>
+        <mxCell id="4 a14" value="" style="rhombus;html=1;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="557.0" y="522.0" width="36" height="36" as="geometry" />
+        </mxCell>
+        <mxCell id="4 a15" value="Return 403 or 409 with reason" style="rounded=1;arcSize=35;whiteSpace=wrap;html=1;fontSize=11;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="485.0" y="606.0" width="180" height="48" as="geometry" />
+        </mxCell>
+        <mxCell id="4 a16" value="Show reason in banner" style="rounded=1;arcSize=35;whiteSpace=wrap;html=1;fontSize=11;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="45.0" y="606.0" width="170" height="48" as="geometry" />
+        </mxCell>
+        <mxCell id="4 a17" value="" style="ellipse;html=1;shape=endState;fillColor=#000000;strokeColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="116.0" y="706.0" width="28" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="4 a18" value="Create Application, status Pending" style="rounded=1;arcSize=35;whiteSpace=wrap;html=1;fontSize=11;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="720.0" y="666.0" width="200" height="48" as="geometry" />
+        </mxCell>
+        <mxCell id="4 a19" value="&lt;b&gt;:Application&lt;/b&gt;&lt;br&gt;[Pending]" style="rounded=0;whiteSpace=wrap;html=1;fontSize=11;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="735.0" y="753.0" width="170" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="4 a20" value="Show &quot;Application sent&quot; with status Pending" style="rounded=1;arcSize=35;whiteSpace=wrap;html=1;fontSize=11;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="225.0" y="664.0" width="190" height="52" as="geometry" />
+        </mxCell>
+        <mxCell id="4 a21" value="Open Applicants for own opportunity" style="rounded=1;arcSize=35;whiteSpace=wrap;html=1;fontSize=11;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="1060.0" y="751.0" width="200" height="48" as="geometry" />
+        </mxCell>
+        <mxCell id="4 a22" value="" style="rhombus;html=1;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="1142.0" y="837.0" width="36" height="36" as="geometry" />
+        </mxCell>
+        <mxCell id="4 a23" value="Set status Rejected" style="rounded=1;arcSize=35;whiteSpace=wrap;html=1;fontSize=11;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="485.0" y="913.0" width="180" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="4 a24" value="Conditional update: approvedCount below capacity" style="rounded=1;arcSize=35;whiteSpace=wrap;html=1;fontSize=11;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="715.0" y="907.0" width="210" height="56" as="geometry" />
+        </mxCell>
+        <mxCell id="4 a25" value="" style="rhombus;html=1;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="802.0" y="997.0" width="36" height="36" as="geometry" />
+        </mxCell>
+        <mxCell id="4 a26" value="Return 409 Opportunity is full" style="rounded=1;arcSize=35;whiteSpace=wrap;html=1;fontSize=11;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="720.0" y="1066.0" width="200" height="48" as="geometry" />
+        </mxCell>
+        <mxCell id="4 a27" value="Show &quot;full&quot; banner" style="rounded=1;arcSize=35;whiteSpace=wrap;html=1;fontSize=11;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="1065.0" y="1068.0" width="190" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="4 a28" value="Set status Approved, approvedCount + 1" style="rounded=1;arcSize=35;whiteSpace=wrap;html=1;fontSize=11;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="485.0" y="1064.0" width="180" height="52" as="geometry" />
+        </mxCell>
+        <mxCell id="4 a29" value="" style="rhombus;html=1;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="557.0" y="1157.0" width="36" height="36" as="geometry" />
+        </mxCell>
+        <mxCell id="4 a30" value="See updated status on next page load" style="rounded=1;arcSize=35;whiteSpace=wrap;html=1;fontSize=11;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="225.0" y="1149.0" width="190" height="52" as="geometry" />
+        </mxCell>
+        <mxCell id="4 a31" value="" style="rhombus;html=1;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="302.0" y="1237.0" width="36" height="36" as="geometry" />
+        </mxCell>
+        <mxCell id="4 a32" value="Set Withdrawn. If it was Approved, approvedCount − 1" style="rounded=1;arcSize=35;whiteSpace=wrap;html=1;fontSize=11;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="475.0" y="1302.0" width="200" height="56" as="geometry" />
+        </mxCell>
+        <mxCell id="4 a33" value="Show &quot;Application withdrawn&quot;" style="rounded=1;arcSize=35;whiteSpace=wrap;html=1;fontSize=11;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="225.0" y="1388.0" width="190" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="4 a34" value="" style="ellipse;html=1;shape=endState;fillColor=#000000;strokeColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="306.0" y="1486.0" width="28" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="4 a35" value="" style="html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;fontSize=10;endArrow=open;endFill=0;endSize=10;" edge="1" parent="1" source="4 a5" target="4 a6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="4 a36" value="" style="html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;fontSize=10;endArrow=open;endFill=0;endSize=10;" edge="1" parent="1" source="4 a6" target="4 a7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="4 a37" value="" style="html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;fontSize=10;endArrow=open;endFill=0;endSize=10;" edge="1" parent="1" source="4 a7" target="4 a8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="4 a38" value="" style="html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;fontSize=10;endArrow=open;endFill=0;endSize=10;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="4 a8" target="4 a9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="4 a39" value="" style="html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;fontSize=10;endArrow=open;endFill=0;endSize=10;" edge="1" parent="1" source="4 a9" target="4 a10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="4 a40" value="[volunteer]" style="html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;fontSize=10;endArrow=open;endFill=0;endSize=10;" edge="1" parent="1" source="4 a10" target="4 a11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="4 a41" value="[open and future]" style="html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;fontSize=10;endArrow=open;endFill=0;endSize=10;" edge="1" parent="1" source="4 a11" target="4 a12">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="4 a42" value="[places left]" style="html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;fontSize=10;endArrow=open;endFill=0;endSize=10;" edge="1" parent="1" source="4 a12" target="4 a13">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="4 a43" value="[new]" style="html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;fontSize=10;endArrow=open;endFill=0;endSize=10;" edge="1" parent="1" source="4 a13" target="4 a18">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="4 a44" value="[not a volunteer]" style="html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;fontSize=10;endArrow=open;endFill=0;endSize=10;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="4 a10" target="4 a14">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="575" y="400" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="4 a45" value="[closed or past]" style="html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;fontSize=10;endArrow=open;endFill=0;endSize=10;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.25;entryY=0.25;entryDx=0;entryDy=0;" edge="1" parent="1" source="4 a11" target="4 a14">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="565" y="470" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="4 a46" value="[full]" style="html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;fontSize=10;endArrow=open;endFill=0;endSize=10;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="4 a12" target="4 a14">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="4 a47" value="[already applied]" style="html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;fontSize=10;endArrow=open;endFill=0;endSize=10;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.75;entryY=0.75;entryDx=0;entryDy=0;" edge="1" parent="1" source="4 a13" target="4 a14">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="584" y="610" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="4 a48" value="" style="html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;fontSize=10;endArrow=open;endFill=0;endSize=10;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="4 a14" target="4 a15">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="4 a49" value="" style="html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;fontSize=10;endArrow=open;endFill=0;endSize=10;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="4 a15" target="4 a16">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="4 a50" value="" style="html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;fontSize=10;endArrow=open;endFill=0;endSize=10;" edge="1" parent="1" source="4 a16" target="4 a17">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="4 a51" value="" style="html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;fontSize=10;endArrow=open;endFill=0;endSize=10;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="4 a18" target="4 a20">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="4 a52" value="" style="html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;fontSize=10;endArrow=open;endFill=0;endSize=10;" edge="1" parent="1" source="4 a18" target="4 a19">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="4 a53" value="" style="html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;fontSize=10;endArrow=open;endFill=0;endSize=10;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="4 a19" target="4 a21">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="4 a54" value="" style="html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;fontSize=10;endArrow=open;endFill=0;endSize=10;" edge="1" parent="1" source="4 a21" target="4 a22">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="4 a55" value="[reject]" style="html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;fontSize=10;endArrow=open;endFill=0;endSize=10;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="4 a22" target="4 a23">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="575" y="855" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="4 a56" value="[approve]" style="html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;fontSize=10;endArrow=open;endFill=0;endSize=10;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="4 a22" target="4 a24">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1160" y="935" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="4 a57" value="" style="html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;fontSize=10;endArrow=open;endFill=0;endSize=10;" edge="1" parent="1" source="4 a24" target="4 a25">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="4 a58" value="[no row matched]" style="html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;fontSize=10;endArrow=open;endFill=0;endSize=10;" edge="1" parent="1" source="4 a25" target="4 a26">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="4 a59" value="[matched]" style="html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;fontSize=10;endArrow=open;endFill=0;endSize=10;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="4 a25" target="4 a28">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="575" y="1015" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="4 a60" value="" style="html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;fontSize=10;endArrow=open;endFill=0;endSize=10;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="4 a26" target="4 a27">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="4 a61" value="" style="html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;fontSize=10;endArrow=open;endFill=0;endSize=10;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="4 a27" target="4 a21">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1320" y="1090" />
+              <mxPoint x="1320" y="775" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="4 a62" value="" style="html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;fontSize=10;endArrow=open;endFill=0;endSize=10;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="4 a23" target="4 a29">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="480" y="935" />
+              <mxPoint x="480" y="1175" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="4 a63" value="" style="html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;fontSize=10;endArrow=open;endFill=0;endSize=10;" edge="1" parent="1" source="4 a28" target="4 a29">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="4 a64" value="" style="html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;fontSize=10;endArrow=open;endFill=0;endSize=10;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="4 a29" target="4 a30">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="4 a65" value="waits for decision" style="html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;fontSize=10;endArrow=open;endFill=0;endSize=10;" edge="1" parent="1" source="4 a20" target="4 a30">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="4 a66" value="" style="html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;fontSize=10;endArrow=open;endFill=0;endSize=10;" edge="1" parent="1" source="4 a30" target="4 a31">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="4 a67" value="[withdraw]" style="html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;fontSize=10;endArrow=open;endFill=0;endSize=10;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="4 a31" target="4 a32">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="575" y="1255" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="4 a68" value="" style="html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;fontSize=10;endArrow=open;endFill=0;endSize=10;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="4 a32" target="4 a33">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="455" y="1330" />
+              <mxPoint x="455" y="1410" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="4 a69" value="" style="html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;fontSize=10;endArrow=open;endFill=0;endSize=10;" edge="1" parent="1" source="4 a33" target="4 a34">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="4 a70" value="[keep]" style="html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;fontSize=10;endArrow=open;endFill=0;endSize=10;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="4 a31" target="4 a34">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="130" y="1255" />
+              <mxPoint x="130" y="1500" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="4 a71" value="D0 to D3 refine R1 and R5 (SC2, SC3). Closed status is worked out on read: closedAt set or close date passed (D9)." style="shape=note;whiteSpace=wrap;html=1;size=14;align=left;verticalAlign=top;spacingLeft=6;spacingTop=2;fontSize=11;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="990" y="320" width="340" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="4 a72" value="One atomic findOneAndUpdate filtered on approvedCount below capacity. Two approvals at once cannot overfill (R6, SC1, RK4)." style="shape=note;whiteSpace=wrap;html=1;size=14;align=left;verticalAlign=top;spacingLeft=6;spacingTop=2;fontSize=11;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="990" y="1180" width="340" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="4 a73" value="Withdraw refines R8. Status changes show on the next page load (R7, SC5)." style="shape=note;whiteSpace=wrap;html=1;size=14;align=left;verticalAlign=top;spacingLeft=6;spacingTop=2;fontSize=11;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="990" y="1300" width="340" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="4 a74" value="" style="html=1;endArrow=none;dashed=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="4 a71" target="4 a11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="4 a75" value="" style="html=1;endArrow=none;dashed=1;exitX=0;exitY=0.3;exitDx=0;exitDy=0;entryX=1;entryY=0.7;entryDx=0;entryDy=0;" edge="1" parent="1" source="4 a72" target="4 a24">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="960" y="1204" />
+              <mxPoint x="960" y="950" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="4 a76" value="" style="html=1;endArrow=none;dashed=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="4 a73" target="4 a32">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
