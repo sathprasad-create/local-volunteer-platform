@@ -57,4 +57,36 @@ const listApplicants = async (req, res) => {
         res.status(500).json({ message: error.message });
     }
 };
-module.exports = { applyToOpportunity, listApplicants };
+const decideApplication = async (req, res) => {
+    try {
+        const { decision } = req.body;
+        if (!['approved', 'rejected'].includes(decision)) {
+            return res.status(400).json({ message: 'Decision must be approved or rejected' });
+        }
+
+        const application = await Application.findById(req.params.id).catch(() => null);
+        if (!application) return res.status(404).json({ message: 'Application not found' });
+
+        const opportunity = await Opportunity.findById(application.opportunity);
+        if (!opportunity || String(opportunity.organiser) !== String(req.user._id)) {
+            return res.status(403).json({ message: 'You can only decide applications for your own opportunities' });
+        }
+        if (application.status !== 'pending') {
+            return res.status(409).json({ message: `This application is already ${application.status}` });
+        }
+        if (isClosed(opportunity)) {
+            return res.status(409).json({ message: 'This opportunity is closed' });
+        }
+
+        const decided = await Application.findOneAndUpdate(
+            { _id: application._id, status: 'pending' },
+            { status: decision },
+            { new: true },
+        );
+        if (!decided) return res.status(409).json({ message: 'This application has already been decided' });
+        res.json(decided);
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+};
+module.exports = { applyToOpportunity, listApplicants, decideApplication };
