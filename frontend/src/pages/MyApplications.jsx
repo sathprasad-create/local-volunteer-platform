@@ -15,12 +15,24 @@ const MyApplications = () => {
   const { user } = useAuth();
   const [items, setItems] = useState(null);
   const [error, setError] = useState('');
+  const [confirmingId, setConfirmingId] = useState(null)
 
   useEffect(() => {
     axiosInstance.get('/api/applications/mine', { headers: { Authorization: `Bearer ${user.token}` } })
       .then((res) => setItems(res.data))
       .catch(() => setError('Could not load your applications.'));
   }, [user.token]);
+
+  const withdraw = async (id) => {
+    setError('');
+    try {
+      const { data } = await axiosInstance.patch(`/api/applications/${id}/withdraw`, {}, { headers: { Authorization: `Bearer ${user.token}` } });
+      setItems((list) => list.map((a) => (a._id === id ? { ...a, status: data.status, displayStatus: data.status } : a)));
+      setConfirmingId(null);
+    } catch (err) {
+      setError(err.response?.data?.message || 'Could not withdraw. Please try again.');
+    }
+  };
 
   return (
     <div className="max-w-3xl mx-auto mt-10 px-4">
@@ -43,6 +55,17 @@ const MyApplications = () => {
           {a.opportunity && (
             <div className="text-sm text-gray-600">
               {new Date(a.opportunity.eventDate).toLocaleDateString()} · {a.opportunity.location}
+            </div>
+          )}
+                    {['pending', 'approved'].includes(a.displayStatus) && a.opportunity && new Date(a.opportunity.eventDate) > new Date() && confirmingId !== a._id && (
+            <button type="button" onClick={() => setConfirmingId(a._id)} className="text-red-700 text-sm underline mt-2">Withdraw</button>
+          )}
+          {confirmingId === a._id && (
+            <div className="border-2 border-gray-800 rounded p-3 mt-2 text-sm">
+              <p className="font-semibold">Withdraw from {a.opportunity?.title}?</p>
+              <p className="mb-2">{a.status === 'approved' ? 'Your confirmed place will be released so the organiser can offer it to someone else. ' : ''}You can't undo this.</p>
+              <button type="button" onClick={() => setConfirmingId(null)} className="border border-gray-800 px-3 py-1 rounded mr-2">Keep my place</button>
+              <button type="button" onClick={() => withdraw(a._id)} className="bg-gray-800 text-white px-3 py-1 rounded">Withdraw</button>
             </div>
           )}
         </div>
