@@ -1,6 +1,7 @@
 const Opportunity = require('../models/Opportunity');
 const Application = require('../models/Application');
-const { isClosed } = require('../utils/opportunityStatus');
+const { isClosed, applicationDisplayStatus } = require('../utils/opportunityStatus');
+const { loadOwned } = require('./opportunityController');
 
 const applyToOpportunity = async (req, res) => {
     try {
@@ -34,4 +35,26 @@ const applyToOpportunity = async (req, res) => {
     }
 };
 
-module.exports = { applyToOpportunity };
+const listApplicants = async (req, res) => {
+    try {
+        const opportunity = await loadOwned(req, res);
+        if (!opportunity) return;
+        const applications = await Application.find({ opportunity: opportunity._id })
+            .populate('volunteer', 'name email')
+            .sort({ createdAt: 1 });
+        const closed = isClosed(opportunity);
+        res.json({
+            opportunity: {
+                _id: opportunity._id, title: opportunity.title, capacity: opportunity.capacity,
+                approvedCount: opportunity.approvedCount, status: closed ? 'closed' : 'open',
+            },
+            applications: applications.map((a) => ({
+                _id: a._id, volunteer: a.volunteer, message: a.message, status: a.status,
+                displayStatus: applicationDisplayStatus(a.status, closed),
+            })),
+        });
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+};
+module.exports = { applyToOpportunity, listApplicants };

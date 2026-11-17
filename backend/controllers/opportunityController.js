@@ -111,5 +111,5 @@ const closeOpportunity = async (req, res) => {
 };
 
 module.exports = {
-        createOpportunity, getMyOpportunities, browseOpportunities, viewOpportunity, getOpportunity, updateOpportunity, closeOpportunity,
+        createOpportunity, getMyOpportunities, browseOpportunities, viewOpportunity, getOpportunity, updateOpportunity, closeOpportunity, loadOwned,
 };
