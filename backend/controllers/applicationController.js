@@ -125,4 +125,32 @@ const listMyApplications = async (req, res) => {
         res.status(500).json({ message: error.message });
     }
 };
-module.exports = { applyToOpportunity, listApplicants, decideApplication, listMyApplications };
+
+const withdrawApplication = async (req, res) => {
+    try {
+        const application = await Application.findById(req.params.id).catch(() => null);
+        if (!application || String(application.volunteer) !== String(req.user._id)) {
+            return res.status(404).json({ message: 'Application not found' });
+        }
+        if (!['pending', 'approved'].includes(application.status)) {
+            return res.status(409).json({ message: `This application is already ${application.status}` });
+        }
+        const opportunity = await Opportunity.findById(application.opportunity);
+        if (!opportunity || new Date(opportunity.eventDate) <= new Date()) {
+            return res.status(409).json({ message: 'You cannot withdraw after the event date' });
+        }
+        const withdrawn = await Application.findOneAndUpdate(
+            { _id: application._id, status: application.status },
+            { status: 'withdrawn' },
+            { new: true },
+        );
+        if (!withdrawn) return res.status(409).json({ message: 'This application has just changed. Please refresh.' });
+        if (application.status === 'approved') {
+            await Opportunity.updateOne({ _id: opportunity._id, approvedCount: { $gt: 0 } }, { $inc: { approvedCount: -1 } });
+        }
+        res.json(withdrawn);
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+};
+module.exports = { applyToOpportunity, listApplicants, decideApplication, listMyApplications, withdrawApplication };
