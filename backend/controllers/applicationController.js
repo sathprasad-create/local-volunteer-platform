@@ -77,13 +77,27 @@ const decideApplication = async (req, res) => {
         if (isClosed(opportunity)) {
             return res.status(409).json({ message: 'This opportunity is closed' });
         }
-
+        if (decision === 'approved') {
+            const filled = await Opportunity.findOneAndUpdate(
+                { _id: opportunity._id, $expr: { $lt: ['$approvedCount', '$capacity'] } },
+                { $inc: { approvedCount: 1 } },
+                { new: true },
+            );
+            if (!filled) {
+                return res.status(409).json({ message: `Opportunity is full (${opportunity.capacity}/${opportunity.capacity})` });
+            }
+        }
         const decided = await Application.findOneAndUpdate(
             { _id: application._id, status: 'pending' },
             { status: decision },
             { new: true },
         );
-        if (!decided) return res.status(409).json({ message: 'This application has already been decided' });
+            if (!decided) {
+               if (decision === 'approved') {
+                  await Opportunity.updateOne({ _id: opportunity._id }, { $inc: { approvedCount: -1 } });
+            }
+            return res.status(409).json({ message: 'This application has already been decided' });
+        }
         res.json(decided);
     } catch (error) {
         res.status(500).json({ message: error.message });
