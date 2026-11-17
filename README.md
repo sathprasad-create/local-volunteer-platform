@@ -1,21 +1,19 @@
 # Local Volunteer Platform
 
-A web app that connects community organisers with local volunteers. Organisers post volunteering opportunities with a fixed number of places and decide who gets them. Volunteers browse open opportunities, apply, and track the outcome.
+A web app that connects community organisers with local volunteers. Organisers post volunteering opportunities with a set number of places and choose who gets them. Volunteers browse open opportunities, apply, and see the outcome.
 
 Built for IFQ636 Assignment 1 (QUT), extending the unit's MERN starter app.
 
-## Deployment
+## Where it runs
 
-The app runs on the university EC2 instance (Sath_t3, ap-southeast-2):
+The app runs on my university EC2 instance at **http://&lt;instance public IP&gt;/** (on 17 Nov 2026 this was http://3.25.52.164/).
 
-**http://&lt;instance public IPv4&gt;/** (at the time of writing: http://3.25.52.164/)
-
-The public IP changes every time the instance is stopped and started, and the app keeps working at the new address without any change. Inbound access is limited to approved IPs, so the address is only reachable from those networks. See [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md) for the runbook.
+The IP changes each time the instance restarts, but the app keeps working at the new address with no changes. Access is limited to approved IP addresses. How it was deployed: [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md).
 
 ## Roles
 
 - **Volunteer**: anyone who registers. Browses opportunities, applies, withdraws.
-- **Organiser**: set up by the platform operator with a seed script, not self-registered. Creates opportunities and reviews applicants.
+- **Organiser**: created by the platform operator with a seed script, not by registering. Creates opportunities and reviews applicants.
 
 ## Features
 
@@ -33,52 +31,21 @@ The public IP changes every time the instance is stopped and started, and the ap
 
 ## Architecture
 
-```
-Browser
-  │  http://<public IP>/
-  ▼
-nginx on EC2 (port 80)
-  ├── /        → React build in /var/www/lvp
-  └── /api/    → Node.js + Express on 127.0.0.1:5001 (run by PM2)
-                   │
-                   ▼
-              MongoDB Atlas (database: lvp)
-```
+The SysML diagrams are in [docs/design/LVP_SysML.drawio](docs/design/LVP_SysML.drawio). Open the file in diagrams.net. It has three pages: requirements, system structure, and the application lifecycle.
 
-- **Frontend** (`frontend/`): React with Tailwind. Calls `/api` relative to the host it was served from, so no IP or port is hard-coded. In development, the React dev server proxies `/api` to port 5001.
-- **Backend** (`backend/`): Express, organised as routes → middleware → controllers → validators and utils → Mongoose models.
-  - `middleware/authMiddleware.js`: `protect` checks the JWT and loads the user; `authorise(...roles)` returns 403 for the wrong role.
-  - `utils/opportunityStatus.js`: an opportunity is closed when it was closed by hand or its close date has passed. Status is worked out on read, so no scheduler is needed.
-  - Approving an application takes a place with one conditional update (`approvedCount < capacity`), so capacity can never be exceeded.
-- **Data**: three collections: `users` (with role), `opportunities` and `applications` (one per volunteer per opportunity, enforced by a unique index). Nothing is deleted; closing sets `closedAt`.
-
-### API
-
-| Method | Path | Role | Purpose |
-| ------ | ---- | ---- | ------- |
-| POST | /api/auth/register | Public | Register a Volunteer |
-| POST | /api/auth/login | Public | Log in; returns a token and role |
-| GET | /api/auth/profile | Any | Own profile |
-| POST | /api/opportunities | Organiser | Create an opportunity |
-| GET | /api/opportunities/mine | Organiser | Own opportunities, `?status=open\|closed` |
-| GET | /api/opportunities/:id | Organiser (owner) | One opportunity for editing |
-| PUT | /api/opportunities/:id | Organiser (owner) | Edit |
-| PATCH | /api/opportunities/:id/close | Organiser (owner) | Close |
-| GET | /api/opportunities/:id/applications | Organiser (owner) | Applicants |
-| GET | /api/opportunities | Volunteer | Browse open opportunities |
-| GET | /api/opportunities/:id/view | Volunteer | One opportunity with own application status |
-| POST | /api/opportunities/:id/applications | Volunteer | Apply |
-| GET | /api/applications/mine | Volunteer | Own applications |
-| PATCH | /api/applications/:id/decision | Organiser (owner) | Approve or reject |
-| PATCH | /api/applications/:id/withdraw | Volunteer (own) | Withdraw |
+In short:
+- The **React frontend** is what users see in the browser.
+- The **Express backend** handles logins and the rules, such as roles, capacity and close dates.
+- **MongoDB Atlas** stores users, opportunities and applications.
+- On EC2, **nginx** serves the frontend and passes `/api` requests to the backend. **PM2** keeps the backend running and starts it again after a restart.
 
 ## Tech stack
 
-Node.js 22, Express, MongoDB Atlas (Mongoose), React, Tailwind CSS, JWT authentication, bcrypt, Mocha, Chai and Sinon, nginx and PM2 on AWS EC2.
+Node.js 22, Express, MongoDB Atlas, React, Tailwind CSS, JWT login, Mocha, Chai and Sinon for tests, nginx and PM2 on AWS EC2.
 
-## Local setup
+## Run it locally
 
-Prerequisites: Node.js 22 (via nvm), a MongoDB Atlas cluster, Git.
+You need Node.js 22, a MongoDB Atlas cluster and Git.
 
 ```bash
 git clone https://github.com/sathprasad-create/local-volunteer-platform.git
@@ -88,47 +55,45 @@ npm run install-all
 cp backend/.env.example backend/.env
 ```
 
-Edit `backend/.env`:
+Fill in `backend/.env`:
 - `MONGO_URI`: your Atlas connection string, ending in `/lvp`
-- `JWT_SECRET`: generate with `openssl rand -base64 32`
+- `JWT_SECRET`: make one with `openssl rand -base64 32`
 - `PORT`: 5001
-- `SEED_ORGANISER_PASSWORD`: the password for the seeded Organiser accounts
+- `SEED_ORGANISER_PASSWORD`: a password for the Organiser accounts
 
-Create the Organiser accounts (safe to run more than once):
+Create the Organiser accounts:
 ```bash
 npm run seed --prefix backend
 ```
 
-Run both servers:
+Start the app:
 ```bash
 npm run dev
 ```
-Frontend: http://localhost:3000. Backend: http://localhost:5001.
-
-Your current IP must be on the Atlas access list, or the backend exits with a connection error.
+Open http://localhost:3000. Your IP must be on the Atlas access list.
 
 ## Tests
 
 ```bash
 npm test --prefix backend
 ```
-40 tests cover registration roles, role checks, opportunity validation, edit, close, browse, apply, review with the capacity limit, my applications and withdraw. The database is stubbed with Sinon, so no connection is needed.
+40 backend tests. They fake the database, so no connection is needed.
 
 ## Known limitations
 
-- **HTTP only.** There is no HTTPS, so traffic between the browser and the server is not encrypted.
-- **Token in localStorage.** The login token is stored where any script on the page could read it (XSS risk).
-- **Validation rules exist twice**, in the frontend and the backend, so a change must be made in both.
-- **Dates are stored as midnight UTC.** An opportunity that "closes 26 Nov" closes at 11am Sydney time on that day.
-- **Two-step writes.** Approve and withdraw update the application and the place count in two writes, not a transaction. Edit checks capacity against approvals in a separate step from saving.
-- **Atlas access list allows 0.0.0.0/0** because the EC2 IP changes on every restart (decision D6). The app's database user can only read and write the `lvp` database.
-- **One database for development and deployment.** Local runs and EC2 share the same Atlas database.
-- **Seed script does not change passwords.** If `SEED_ORGANISER_PASSWORD` changes, existing Organiser accounts keep the old password.
-- **Starter dependencies carry known audit findings** (`npm audit`), mostly from Create React App.
-- **Deferred:** waitlist for full opportunities (S3.6) and removing the starter's unused profile fields (S1.3).
+- No HTTPS. The site uses plain HTTP.
+- The login token is kept in the browser's localStorage, which page scripts can read.
+- Form rules are written twice, once in the frontend and once in the backend.
+- Dates are saved as midnight UTC, so an opportunity that closes on 26 Nov actually closes at 11am Sydney time that day.
+- Approving and withdrawing each make two separate database updates, not one combined transaction.
+- Atlas accepts connections from any IP, because the EC2 IP changes on restart. The app's database user can only use the `lvp` database.
+- Local runs and EC2 use the same database.
+- Changing the seed password does not update Organiser accounts that already exist.
+- Some starter packages have known security warnings from `npm audit`.
+- Not built yet: a waitlist for full opportunities, and removing unused profile fields from the starter.
 
-## Project links
+## Links
 
 - Jira: [SCRUM board](https://sathprasad.atlassian.net/jira/software/projects/SCRUM/boards/1/backlog)
-- Figma: [Local Volunteer Platform prototype](https://www.figma.com/design/lrvfojzaNrgngC8uV4DoP8)
-- Deployment runbook: [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md)
+- Figma: [prototype](https://www.figma.com/design/lrvfojzaNrgngC8uV4DoP8)
+- Deployment: [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md)
