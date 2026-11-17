@@ -74,6 +74,7 @@ const MyOpportunities = () => {
             {new Date(o.eventDate).toLocaleDateString()} · {o.location} · closes {new Date(o.closesAt).toLocaleDateString()}
           </div>
           <div className="text-sm">{o.approvedCount} of {o.capacity} places filled</div>
+             <Link to={`/organiser/opportunities/${o._id}/applicants`} className="text-blue-700 text-sm underline block mt-1">View applicants</Link>
           {o.status === 'open' && confirmingId !== o._id && (
             <div className="flex gap-4 mt-2 text-sm">
               <Link to={`/organiser/opportunities/${o._id}/edit`} className="text-blue-700 underline">Edit</Link>
