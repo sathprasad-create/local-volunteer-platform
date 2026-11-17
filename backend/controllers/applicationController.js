@@ -103,4 +103,26 @@ const decideApplication = async (req, res) => {
         res.status(500).json({ message: error.message });
     }
 };
-module.exports = { applyToOpportunity, listApplicants, decideApplication };
+
+const listMyApplications = async (req, res) => {
+    try {
+        const applications = await Application.find({ volunteer: req.user._id })
+            .populate('opportunity', 'title eventDate location closesAt closedAt')
+            .sort({ createdAt: -1 });
+        res.json(applications.map((a) => {
+            const closed = a.opportunity ? isClosed(a.opportunity) : true;
+            return {
+                _id: a._id,
+                status: a.status,
+                displayStatus: applicationDisplayStatus(a.status, closed),
+                opportunity: a.opportunity && {
+                    _id: a.opportunity._id, title: a.opportunity.title,
+                    eventDate: a.opportunity.eventDate, location: a.opportunity.location,
+                },
+            };
+        }));
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+};
+module.exports = { applyToOpportunity, listApplicants, decideApplication, listMyApplications };
